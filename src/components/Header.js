@@ -11,7 +11,7 @@ const Header = () => {
           </div>
         </Link>
         <div className="HeaderTitle">
-          <p>Le site qui regroupe tous vos Comics préférés et leur Héros</p>
+          <p>Le site qui regroupe tous vos Comics préférés et leurs Héros</p>
         </div>
       </div>
       <div className="buttonsHeader">

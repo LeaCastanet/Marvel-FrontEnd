@@ -1,8 +1,56 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
-const CharactersCard = ({ data, setData }) => {
+const CharactersCard = ({
+  data,
+  setData,
+  nameSearch,
+  setNameSearch,
+  limit,
+  setLimit,
+  page,
+  setPage,
+  favoris,
+  setFavoris,
+  newFavoris,
+  handleFavoris,
+}) => {
+  const ref = useRef(null);
+
+  const handleClick = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="CharactersCard">
+      <div>
+        <input
+          ref={ref}
+          className="inputCharacters"
+          type="search"
+          placeholder="Rechercher un personnage"
+          value={nameSearch}
+          onChange={(event) => {
+            setNameSearch(event.target.value);
+          }}
+        ></input>
+        <button
+          className={limit === 50 ? "activited" : "unactivited"}
+          onClick={(event) => {
+            setLimit(50);
+          }}
+        >
+          Afficher 50
+        </button>
+        <button
+          className={limit === 100 ? "activited" : "unactivited"}
+          onClick={(event) => {
+            setLimit(100);
+          }}
+        >
+          Afficher 100
+        </button>
+      </div>
       {data.results.map((character, index) => {
         const characterId = character._id;
         return (
@@ -11,6 +59,8 @@ const CharactersCard = ({ data, setData }) => {
               <Link to={`/comics/${characterId}`}>
                 <img
                   src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                  index={index}
+                  alt="comic"
                 ></img>
               </Link>
             </div>
@@ -22,9 +72,47 @@ const CharactersCard = ({ data, setData }) => {
               <p>Description</p>
               <p>{character.description}</p>
             </div>
+            <div>
+              <button
+                onClick={() => {
+                  newFavoris.push({
+                    img: `${character.thumbnail.path}.${character.thumbnail.extension}`,
+                    title: character.name,
+                  });
+                  setFavoris(newFavoris);
+                  console.log(newFavoris);
+                  handleFavoris();
+                }}
+              >
+                Favoris
+              </button>
+            </div>
           </div>
         );
       })}
+      <div>
+        {page !== 1 && (
+          <button
+            onClick={() => {
+              setPage(page - 1);
+              handleClick();
+            }}
+          >
+            -
+          </button>
+        )}
+
+        <div>{page}</div>
+
+        <button
+          onClick={() => {
+            setPage(page + 1);
+            handleClick();
+          }}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 };

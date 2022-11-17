@@ -7,6 +7,8 @@ const CharacterComics = ({ data, setData }) => {
             <div>
               <img
                 src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                index={index}
+                alt="personnage"
               ></img>
             </div>
             <div>
