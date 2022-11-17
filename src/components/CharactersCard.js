@@ -24,32 +24,36 @@ const CharactersCard = ({
   return (
     <div className="CharactersCard">
       <div>
-        <input
-          ref={ref}
-          className="inputCharacters"
-          type="search"
-          placeholder="Rechercher un personnage"
-          value={nameSearch}
-          onChange={(event) => {
-            setNameSearch(event.target.value);
-          }}
-        ></input>
-        <button
-          className={limit === 50 ? "activited" : "unactivited"}
-          onClick={(event) => {
-            setLimit(50);
-          }}
-        >
-          Afficher 50
-        </button>
-        <button
-          className={limit === 100 ? "activited" : "unactivited"}
-          onClick={(event) => {
-            setLimit(100);
-          }}
-        >
-          Afficher 100
-        </button>
+        <div className="inputCard">
+          <input
+            ref={ref}
+            className="inputSearch"
+            type="search"
+            placeholder="Rechercher un personnage"
+            value={nameSearch}
+            onChange={(event) => {
+              setNameSearch(event.target.value);
+            }}
+          ></input>
+        </div>
+        <div className="buttonLimit">
+          <button
+            className={limit === 50 ? "activited" : "unactivited"}
+            onClick={(event) => {
+              setLimit(50);
+            }}
+          >
+            Afficher 50
+          </button>
+          <button
+            className={limit === 100 ? "activited" : "unactivited"}
+            onClick={(event) => {
+              setLimit(100);
+            }}
+          >
+            Afficher 100
+          </button>
+        </div>
       </div>
       {data.results.map((character, index) => {
         const characterId = character._id;

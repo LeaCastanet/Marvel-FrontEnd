@@ -23,37 +23,41 @@ const ComicsCard = ({
   return (
     <div className="ComicsCard">
       <div>
-        <input
-          ref={ref}
-          className="inputComics"
-          type="search"
-          placeholder="Rechercher un comic"
-          value={titleSearch}
-          onChange={(event) => {
-            setTitleSearch(event.target.value);
-          }}
-        ></input>
-        <button
-          className={limit === 50 ? "activited" : "unactivited"}
-          onClick={(event) => {
-            setLimit(50);
-          }}
-        >
-          Afficher 50
-        </button>
-        <button
-          className={limit === 100 ? "activited" : "unactivited"}
-          onClick={(event) => {
-            setLimit(100);
-          }}
-        >
-          Afficher 100
-        </button>
+        <div className="inputCard">
+          <input
+            ref={ref}
+            className="inputSearch"
+            type="search"
+            placeholder="Rechercher un comic"
+            value={titleSearch}
+            onChange={(event) => {
+              setTitleSearch(event.target.value);
+            }}
+          ></input>
+        </div>
+        <div className="buttonLimit">
+          <button
+            className={limit === 50 ? "activited" : "unactivited"}
+            onClick={(event) => {
+              setLimit(50);
+            }}
+          >
+            Afficher 50
+          </button>
+          <button
+            className={limit === 100 ? "activited" : "unactivited"}
+            onClick={(event) => {
+              setLimit(100);
+            }}
+          >
+            Afficher 100
+          </button>
+        </div>
       </div>
       {data.results.map((comic, index) => {
         return (
-          <div>
-            <div>
+          <div className="cardContainer">
+            <div className="imgContainer">
               <img
                 src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                 index={index}
@@ -71,7 +75,13 @@ const ComicsCard = ({
             <div>
               <button
                 onClick={() => {
-                  if (newFavoris.indexOf(comic._id) === -1) {
+                  let isPresent = false;
+                  for (let i = 0; i < newFavoris.length; i++) {
+                    if (newFavoris[i].id === comic._id) {
+                      isPresent = true;
+                    }
+                  }
+                  if (isPresent === false) {
                     newFavoris.push({
                       img: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
                       title: comic.title,

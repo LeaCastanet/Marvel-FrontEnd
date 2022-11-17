@@ -51,6 +51,49 @@
   color: white;
 }
 
+.inputCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.inputSearch {
+  height: 30px;
+  width: 250px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: black;
+  color: #ed1d24;
+}
+
+.buttonLimit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
 .activited {
   background-color: #ed1d24;
+  border-radius: 5px;
+  height: 30px;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: solid 2px #ed1d24;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.unactivited {
+  background-color: black;
+  height: 30px;
+  border-radius: 5px;
+  color: #ed1d24;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: solid 2px #ed1d24;
+  font-weight: bold;
+  cursor: pointer;
 }
