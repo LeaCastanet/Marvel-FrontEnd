@@ -1,10 +1,10 @@
 :root {
-  background-color: white;
+  font-family: "Roboto", sans-serif;
 }
 
 .Header {
   height: 70px;
-
+  background-color: #202020;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,6 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #202020;
 }
 
 .buttonHeader {
@@ -51,6 +52,11 @@
   color: white;
 }
 
+.ComicsCard {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .inputCard {
   display: flex;
   justify-content: center;
@@ -63,8 +69,8 @@
   width: 250px;
   text-align: center;
   border-radius: 5px;
-  background-color: black;
   color: #ed1d24;
+  border: 1px solid;
 }
 
 .buttonLimit {
@@ -81,19 +87,145 @@
   color: white;
   margin-left: 20px;
   margin-right: 20px;
-  border: solid 2px #ed1d24;
+  border: solid 1px #ed1d24;
   font-weight: bold;
   cursor: pointer;
 }
 
 .unactivited {
-  background-color: black;
+  background-color: white;
   height: 30px;
   border-radius: 5px;
   color: #ed1d24;
   margin-left: 20px;
   margin-right: 20px;
-  border: solid 2px #ed1d24;
+  border: solid 1px #ed1d24;
+  cursor: pointer;
+}
+
+.cardParent {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.cardContainer {
+  margin-inline: 5px;
+  height: 450px;
+  width: calc(100% / 4.3);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgContainer {
+  height: 350px;
+  width: 250px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.imgComic {
+  object-fit: cover;
+  object-position: top;
+  height: 350px;
+  width: 250px;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+  box-shadow: 0 26px 24px -16px rgb(0 0 0 / 40%);
+}
+
+.textMiddle {
+  transition: 0.5s ease;
+  width: 250px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  color: black;
+}
+
+.favorisContainer {
+  transition: 0.5s ease;
+  position: absolute;
+  top: 5%;
+  left: 92%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.favorisButton {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  background-color: #ed1d24;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgContainer:hover .imgComic {
+  opacity: 0.3;
+}
+
+.imgContainer:hover .textMiddle {
+  opacity: 1;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 16.8pxs;
+  font-weight: bold;
+}
+
+.titleContainer {
+  width: 250px;
+}
+
+.title {
+  font-size: 14px;
+  line-height: 16.8pxs;
   font-weight: bold;
   cursor: pointer;
+  color: black;
+  text-align: center;
+}
+
+.title:hover {
+  color: #ed1d24;
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  align-items: center;
+}
+
+.pageNumber {
+  margin: 0 10px;
+  color: black;
+  font-weight: bold;
+}
+
+.buttonPage {
+  border: none;
+  background-color: #ed1d24;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  height: 25px;
 }

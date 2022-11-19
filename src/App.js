@@ -9,6 +9,10 @@ import Characters from "./pages/Characters";
 import Character from "./pages/Character";
 import Favoris from "./pages/Favoris";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+library.add(faStar);
+
 function App() {
   const [favoris, setFavoris] = useState([]);
   const newFavoris = [...favoris];
