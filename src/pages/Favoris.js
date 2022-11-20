@@ -5,15 +5,16 @@ const Favoris = ({ favoris, setFavoris, newFavoris, handleFavoris }) => {
     const obj = JSON.parse(Cookies.get("favoris"));
     console.log(obj);
     return (
-      <div>
-        <p>Je suis la page favoris</p>
-        <div>
+      <div className="FavorisCard">
+        <div className="cardParent">
           {obj.map((fav, index) => {
             return (
-              <div>
-                <div>
-                  <img src={fav.img}></img>
-                  <p>{fav.title}</p>
+              <div className="cardContainer">
+                <div className="imgContainer">
+                  <img className="imgFav" src={fav.img}></img>
+                </div>
+                <div className="titleContainer">
+                  <p className="titleFav">{fav.title}</p>
                 </div>
               </div>
             );

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CharactersCard = ({
   data,
@@ -55,45 +56,56 @@ const CharactersCard = ({
           </button>
         </div>
       </div>
-      {data.results.map((character, index) => {
-        const characterId = character._id;
-        return (
-          <div>
-            <div>
-              <Link to={`/comics/${characterId}`}>
-                <img
-                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  index={index}
-                  alt="comic"
-                ></img>
-              </Link>
+      <div className="cardParentCharacter">
+        {data.results.map((character, index) => {
+          const characterId = character._id;
+          return (
+            <div className="cardContainerCharacter">
+              <div className="imgContainerCharacter">
+                <Link to={`/comics/${characterId}`}>
+                  <img
+                    className="imgCharacter"
+                    src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                    index={index}
+                    alt="character"
+                  ></img>
+                  <div className="textMiddleCharacter">
+                    <p className="description">{character.description}</p>
+                  </div>
+                  <div className="favorisContainer">
+                    <button
+                      className="favorisButton"
+                      onClick={() => {
+                        let isPresent = false;
+                        for (let i = 0; i < newFavoris.length; i++) {
+                          if (newFavoris[i].id === character._id) {
+                            isPresent = true;
+                          }
+                        }
+                        if (isPresent === false) {
+                          newFavoris.push({
+                            img: `${character.thumbnail.path}.${character.thumbnail.extension}`,
+                            title: character.name,
+                            id: character._id,
+                          });
+                          setFavoris(newFavoris);
+                          console.log(newFavoris);
+                          handleFavoris();
+                        }
+                      }}
+                    >
+                      <FontAwesomeIcon icon="star" />
+                    </button>
+                  </div>
+                </Link>
+              </div>
+              <div className="nameContainerCharacter">
+                <p className="nameCharacter">{character.name}</p>
+              </div>
             </div>
-            <div>
-              <p>Name</p>
-              <p>{character.name}</p>
-            </div>
-            <div>
-              <p>Description</p>
-              <p>{character.description}</p>
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  newFavoris.push({
-                    img: `${character.thumbnail.path}.${character.thumbnail.extension}`,
-                    title: character.name,
-                  });
-                  setFavoris(newFavoris);
-                  console.log(newFavoris);
-                  handleFavoris();
-                }}
-              >
-                Favoris
-              </button>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
       <div>
         {page !== 1 && (
           <button

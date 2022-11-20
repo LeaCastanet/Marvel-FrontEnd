@@ -48,7 +48,17 @@ function App() {
             />
           }
         />
-        <Route path="/comics/:characterId" element={<Character />} />
+        <Route
+          path="/comics/:characterId"
+          element={
+            <Character
+              favoris={favoris}
+              setFavoris={setFavoris}
+              newFavoris={newFavoris}
+              handleFavoris={handleFavoris}
+            />
+          }
+        />
         <Route
           path="/favoris"
           element={
