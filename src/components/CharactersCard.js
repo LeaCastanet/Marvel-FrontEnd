@@ -72,61 +72,66 @@ const CharactersCard = ({
                   <div className="textMiddleCharacter">
                     <p className="description">{character.description}</p>
                   </div>
-                  <div className="favorisContainer">
-                    <button
-                      className="favorisButton"
-                      onClick={() => {
-                        let isPresent = false;
-                        for (let i = 0; i < newFavoris.length; i++) {
-                          if (newFavoris[i].id === character._id) {
-                            isPresent = true;
-                          }
-                        }
-                        if (isPresent === false) {
-                          newFavoris.push({
-                            img: `${character.thumbnail.path}.${character.thumbnail.extension}`,
-                            title: character.name,
-                            id: character._id,
-                          });
-                          setFavoris(newFavoris);
-                          console.log(newFavoris);
-                          handleFavoris();
-                        }
-                      }}
-                    >
-                      <FontAwesomeIcon icon="star" />
-                    </button>
-                  </div>
                 </Link>
+                <div className="favorisContainerCharacter">
+                  <button
+                    className="favorisButton"
+                    onClick={() => {
+                      let isPresent = false;
+                      for (let i = 0; i < newFavoris.length; i++) {
+                        if (newFavoris[i].id === character._id) {
+                          isPresent = true;
+                        }
+                      }
+                      if (isPresent === false) {
+                        newFavoris.push({
+                          img: `${character.thumbnail.path}.${character.thumbnail.extension}`,
+                          title: character.name,
+                          id: character._id,
+                        });
+                        setFavoris(newFavoris);
+                        console.log(newFavoris);
+                        handleFavoris();
+                      }
+                    }}
+                  >
+                    <FontAwesomeIcon icon="star" />
+                  </button>
+                </div>
               </div>
               <div className="nameContainerCharacter">
                 <p className="nameCharacter">{character.name}</p>
+                <div class="overlay">
+                  <p className="nameCharacter">{character.name}</p>
+                </div>
               </div>
             </div>
           );
         })}
       </div>
-      <div>
+      <div className="pagination">
         {page !== 1 && (
           <button
+            className="buttonPage"
             onClick={() => {
               setPage(page - 1);
               handleClick();
             }}
           >
-            -
+            Previous
           </button>
         )}
 
-        <div>{page}</div>
+        <div className="pageNumber">{page}</div>
 
         <button
+          className="buttonPage"
           onClick={() => {
             setPage(page + 1);
             handleClick();
           }}
         >
-          +
+          Next
         </button>
       </div>
     </div>

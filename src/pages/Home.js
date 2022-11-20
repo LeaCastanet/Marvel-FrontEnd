@@ -1,7 +1,9 @@
+import imgMarvelHome from "../img/imgMarvelHome.jpg";
+
 const Home = () => {
   return (
     <div className="home">
-      <p>Je suis la page home</p>
+      <img className="imgHome" src={imgMarvelHome}></img>
     </div>
   );
 };
