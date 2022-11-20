@@ -12,7 +12,7 @@ const Characters = ({ favoris, setFavoris, newFavoris, handleFavoris }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:3000/characters?name=${nameSearch}&limit=${limit}&page=${page}`
+        `https://site--backend-marvel--zq5xy57wvjfd.code.run/characters?name=${nameSearch}&limit=${limit}&page=${page}`
       );
       setData(response.data);
       console.log(response.data);

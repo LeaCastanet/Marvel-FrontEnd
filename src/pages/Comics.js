@@ -12,7 +12,7 @@ const Comics = ({ favoris, setFavoris, newFavoris, handleFavoris }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:3000/comics?title=${titleSearch}&limit=${limit}&page=${page}`
+        `https://site--backend-marvel--zq5xy57wvjfd.code.run/comics?title=${titleSearch}&limit=${limit}&page=${page}`
       );
       setData(response.data);
       console.log(response.data);
