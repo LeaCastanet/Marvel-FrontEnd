@@ -11,24 +11,40 @@ const Header = () => {
         <div className="logoHeaderContainer">
           <a href="https://www.instagram.com/marvel/">
             <div>
-              <img className="logoHeader" src={logoInsta}></img>
+              <img
+                className="logoHeader"
+                src={logoInsta}
+                alt="image logo insta"
+              ></img>
             </div>
           </a>
           <a href="https://www.youtube.com/marvel">
             <div>
-              <img className="logoHeader" src={logoYouTube}></img>
+              <img
+                className="logoHeader"
+                src={logoYouTube}
+                alt="image logo youTube"
+              ></img>
             </div>
           </a>
           <a href="https://twitter.com/marvel">
             <div>
-              <img className="logoHeader" src={logoTwitter}></img>
+              <img
+                className="logoHeader"
+                src={logoTwitter}
+                alt="image logo twitter"
+              ></img>
             </div>
           </a>
         </div>
         <div className="imgHeaderContainer">
           <Link to="/">
             <div>
-              <img className="imgHeader" src={logoMarvel}></img>
+              <img
+                className="imgHeader"
+                src={logoMarvel}
+                alt="image logo marvel"
+              ></img>
             </div>
           </Link>
         </div>
