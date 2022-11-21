@@ -11,11 +11,7 @@ const Favoris = ({ favoris, setFavoris, newFavoris, handleFavoris }) => {
             return (
               <div className="cardContainer">
                 <div className="imgContainer">
-                  <img
-                    className="imgFav"
-                    src={fav.img}
-                    alt="image favoris"
-                  ></img>
+                  <img className="imgFav" src={fav.img} alt="favoris"></img>
                 </div>
                 <div className="titleContainer">
                   <p className="titleFav">{fav.title}</p>

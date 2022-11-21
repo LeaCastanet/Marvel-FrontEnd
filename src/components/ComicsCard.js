@@ -64,7 +64,7 @@ const ComicsCard = ({
                   className="imgComic"
                   src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                   index={index}
-                  alt="image comic"
+                  alt="comic"
                 ></img>
                 <div className="textMiddle">
                   <p className="description">{comic.description}</p>

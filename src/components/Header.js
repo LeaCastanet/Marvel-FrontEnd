@@ -14,7 +14,7 @@ const Header = () => {
               <img
                 className="logoHeader"
                 src={logoInsta}
-                alt="image logo insta"
+                alt="logo insta"
               ></img>
             </div>
           </a>
@@ -23,7 +23,7 @@ const Header = () => {
               <img
                 className="logoHeader"
                 src={logoYouTube}
-                alt="image logo youTube"
+                alt="logo youTube"
               ></img>
             </div>
           </a>
@@ -32,7 +32,7 @@ const Header = () => {
               <img
                 className="logoHeader"
                 src={logoTwitter}
-                alt="image logo twitter"
+                alt="logo twitter"
               ></img>
             </div>
           </a>
@@ -43,7 +43,7 @@ const Header = () => {
               <img
                 className="imgHeader"
                 src={logoMarvel}
-                alt="image logo marvel"
+                alt="logo marvel"
               ></img>
             </div>
           </Link>

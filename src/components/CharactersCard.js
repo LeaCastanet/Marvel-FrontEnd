@@ -67,7 +67,7 @@ const CharactersCard = ({
                     className="imgCharacter"
                     src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                     index={index}
-                    alt="image character"
+                    alt="character"
                   ></img>
                   <div className="textMiddleCharacter">
                     <p className="description">{character.description}</p>
