@@ -549,4 +549,14 @@
     font-weight: bold;
     cursor: pointer;
   }
+  .cardContainerCharacter {
+    margin-inline: 5px;
+    height: 350px;
+    margin-bottom: 15px;
+    width: calc(100% / 1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
