@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+
 import ComicsCard from "../components/ComicsCard";
+import CustomLoader from "../components/CustomLoader";
 
 const Comics = ({ favoris, setFavoris, newFavoris, handleFavoris }) => {
   const [data, setData] = useState({});
@@ -15,14 +17,14 @@ const Comics = ({ favoris, setFavoris, newFavoris, handleFavoris }) => {
         `https://site--backend-marvel--zq5xy57wvjfd.code.run/comics?title=${titleSearch}&limit=${limit}&page=${page}`
       );
       setData(response.data);
-      console.log(response.data);
+      // console.log(response.data);
       setIsLoading(false);
     };
     fetchData();
   }, [titleSearch, limit, page]);
 
   return isLoading ? (
-    <p>En cours de chargement...</p>
+    <CustomLoader />
   ) : (
     <div>
       <ComicsCard

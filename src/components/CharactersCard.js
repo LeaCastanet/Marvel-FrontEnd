@@ -90,7 +90,7 @@ const CharactersCard = ({
                           id: character._id,
                         });
                         setFavoris(newFavoris);
-                        console.log(newFavoris);
+                        // console.log(newFavoris);
                         handleFavoris();
                       }
                     }}

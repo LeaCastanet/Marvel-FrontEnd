@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import CharacterComics from "../components/CharacterComics";
+import CustomLoader from "../components/CustomLoader";
 
 const Character = () => {
   const [data, setData] = useState({});
@@ -14,14 +16,14 @@ const Character = () => {
         `https://site--backend-marvel--zq5xy57wvjfd.code.run/comics/${characterId}`
       );
       setData(response.data);
-      console.log(response.data);
+      // console.log(response.data);
       setIsLoading(false);
     };
     fetchData();
   }, [characterId]);
 
   return isLoading ? (
-    <p>En cours de chargement...</p>
+    <CustomLoader />
   ) : (
     <div>
       <CharacterComics data={data} setData={setData} />
